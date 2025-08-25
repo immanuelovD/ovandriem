@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log</title>
+        <link rel="stylesheet" href="thestyling.css">  </head>
+
+<style>
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.media-pair {
+  display: flex;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #dbdbdb;
+  overflow: hidden;
+  min-height: 220px;
+}
+.media-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: none;
+  display: block;
+  flex-shrink: 0;
+}
+.comment-panel {
+  width: 180px;
+  min-width: 120px;
+  background: #fff;
+  border-left: 1px solid #dbdbdb;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.comment-list {
+  min-height: 40px;
+  margin-bottom: 8px;
+  font-size: 0.97em;
+}
+.comment-input {
+  width: 90%;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+</style>
+<script>
+function addComment(e, form) {
+  e.preventDefault();
+  const input = form.querySelector('.comment-input');
+  const list = form.parentElement.querySelector('.comment-list');
+  if (input.value.trim()) {
+    const div = document.createElement('div');
+    div.textContent = input.value;
+    div.style.marginBottom = '4px';
+    list.appendChild(div);
+    input.value = '';
+  }
+}
+</script>
+</head>
+<body>
+
+    <div class="topnav">
+<script src="scriipt.js"></script>
+    </div>
+    
+<div style="padding: 55px;;"> 
+    <h1></h1>
+    <h4 style="padding-left: 20px;">
+<br> <br>
+    <div class="insta-feed" style="margin-top:44px; margin-bottom:44px; padding-left:22px;">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="post" class="insta-post-img">
+  <div class="insta-post-content">
+    <p><b></b> Brotbacken ist Magie! 🥖✨</p>
+  </div>
+</div>
+
+
+<div class="media-grid">
+  <!-- Cell 1 -->
+  <div class="media-pair">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="pic1" class="media-img">
+    <div class="comment-panel">
+      <h4>Comments</h4>
+      <div class="comment-list"></div>
+      <form onsubmit="addComment(event, this)">
+        <input type="text" placeholder="Add a comment..." class="comment-input">
+        <button type="submit">Post</button>
+      </form>
+    </div>
+  </div>
+  <!-- Cell 2 -->
+  <div class="media-pair">
+    <iframe class="media-img" src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+    <div class="comment-panel">
+      <h4>Comments</h4>
+      <div class="comment-list"></div>
+      <form onsubmit="addComment(event, this)">
+        <input type="text" placeholder="Add a comment..." class="comment-input">
+        <button type="submit">Post</button>
+      </form>
+    </div>
+  </div>
+  <!-- ...repeat for 9 cells... -->
+</div>
+
+
+</div>
+
+<?php
+date_default_timezone_set("Europe/Amsterdam");
+echo "The time is " . date("h:i:sa - ");        
+echo "";
+echo "The date is " . date ("jS-M-y");
+?>
+</body>
+</html>
